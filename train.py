@@ -20,6 +20,7 @@ import math
 import os
 import random
 import sys
+sys.path.remove('/opt/ros/kinetic/lib/python2.7/dist-packages')
 import time
 from copy import deepcopy
 from datetime import datetime

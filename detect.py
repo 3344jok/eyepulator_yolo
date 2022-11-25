@@ -29,6 +29,7 @@ import argparse
 import os
 import platform
 import sys
+sys.path.remove('/opt/ros/kinetic/lib/python2.7/dist-packages')
 from pathlib import Path
 
 import torch
