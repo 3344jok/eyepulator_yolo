@@ -26,6 +26,7 @@ Usage - formats:
 """
 
 import argparse
+import time
 import os
 import platform
 import rospy
@@ -102,6 +103,9 @@ def run(
     stride, names, pt = model.stride, model.names, model.pt
     imgsz = check_img_size(imgsz, s=stride)  # check image size
 
+    rospy.loginfo("Start to load data...")
+    time.sleep(0.5)
+
     # Dataloader
     bs = 1  # batch_size
     if webcam:
@@ -174,6 +178,8 @@ def run(
                         c = int(cls)  # integer class
                         label = None if hide_labels else (names[c] if hide_conf else f'{names[c]} {conf:.2f}')
                         annotator.box_label(xyxy, label, color=colors(c, True))
+                        cv2.imshow("cut",annotator.cut)
+                        cv2.waitKey(1)
                         if not rospy.is_shutdown():
                             pub.publish(bridge.cv2_to_imgmsg(annotator.cut,encoding='passthrough'))
 

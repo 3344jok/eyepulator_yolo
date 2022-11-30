@@ -1,0 +1,6 @@
+<launch>
+  <node pkg="rosbag" type="play" name="bag_player" output="screen" args="--clock /media/zhang26/zhang26_EXT/linux_disk/apriltagCar/apriltagCar.bag"/>
+  <!-- 注意这里bag文件的路径必须为绝对路径-->
+  <node pkg="rosbag" type="record" name="bag_recorder" args="/camera_ir/rgb/image_raw -o /media/zhang26/zhang26_EXT/linux_disk/apriltagCar/apriltagCar1.bag"/>
+  <!-- 注意这里bag文件的路径必须为绝对路径-->   
+</launch>
